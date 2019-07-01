@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/forces"
+            android:title="Forces"/>
+        <item
+            android:id="@+id/specific_force"
+            android:title="Specific Forces"/>
+        <item
+            android:title="Force Senior Officers"
+            android:id="@+id/force_senior"/>
+        <item
+            android:title="Crimes At Location"
+            android:id="@+id/crimes_location"/>
+        <item
+            android:id="@+id/crimes_no_location"
+            android:title="Crimes With No Location"/>
+    </group>
+
+</menu>
