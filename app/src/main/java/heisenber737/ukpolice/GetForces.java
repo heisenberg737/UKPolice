@@ -14,6 +14,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import mysingleton.MySingleton;
+
 public class GetForces {
 
     Context context;
@@ -24,10 +26,6 @@ public class GetForces {
     {
         this.context=context;
 
-//        if(i==1)
-//            this.forces_url=;
-//        else if(i==2)
-//            this.forces_url="https://data.police.uk/api/forces/leicestershire";
     }
 
     public ArrayList<forces_cl> getList()

@@ -1,4 +1,4 @@
-package heisenber737.ukpolice;
+package recyclerview;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import heisenber737.ukpolice.R;
+import heisenber737.ukpolice.forces_cl;
 
 public class forces_adapter extends RecyclerView.Adapter<forces_adapter.ForcesViewHolder> {
 
