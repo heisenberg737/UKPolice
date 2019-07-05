@@ -14,8 +14,8 @@
             android:title="Crimes At Location"
             android:id="@+id/crimes_location"/>
         <item
-            android:id="@+id/crimes_no_location"
-            android:title="Crimes With No Location"/>
+            android:id="@+id/favourites"
+            android:title="Favourites"/>
     </group>
 
 </menu>

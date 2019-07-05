@@ -1,4 +1,4 @@
-package mysingleton;
+package heisenber737.ukpolice;
 
 import android.content.Context;
 

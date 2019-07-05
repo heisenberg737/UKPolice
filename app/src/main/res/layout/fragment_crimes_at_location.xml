@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="recyclerview.crimesAtLocation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:id="@+id/crimehead">
+    </LinearLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crimehead"
+        android:hint="Enter Latitude"
+        android:id="@+id/latitude"
+        android:inputType="text"
+        android:textSize="25sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latitude"
+        android:layout_marginTop="20dp"
+        android:hint="Enter Longitude"
+        android:id="@+id/longitude"
+        android:inputType="text"
+        android:textSize="25sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/longitude"
+        android:id="@+id/yearandmonth"
+        android:textSize="25sp"
+        android:inputType="text"
+        android:hint="YYYY-MM"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="Show"
+        android:id="@+id/show"
+        android:layout_below="@id/yearandmonth"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/show"
+        android:layout_marginTop="20dp"
+        android:id="@+id/title_template"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:textColor="@android:color/background_dark"
+            android:text="Category"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:padding="5dp"
+            android:textColor="@android:color/background_dark"
+            android:text="Month"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:padding="5dp"
+            android:textColor="@android:color/background_dark"
+            android:text="Location Type"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:padding="5dp"
+            android:textColor="@android:color/background_dark"
+            android:text="Outcome"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_template"
+        android:id="@+id/crimes_location">
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</RelativeLayout>

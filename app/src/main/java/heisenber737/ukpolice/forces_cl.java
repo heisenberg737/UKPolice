@@ -4,16 +4,8 @@ public class forces_cl {
     String ID,Name;
     public forces_cl(String ID,String Name)
     {
-        this.setID(ID);
-        this.setName(Name);
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
-    public void setName(String name) {
-        Name = name;
+        this.ID=ID;
+        this.Name=Name;
     }
 
     public String getID() {
