@@ -16,7 +16,7 @@
         android:layout_below="@id/crimehead"
         android:hint="Enter Latitude"
         android:id="@+id/latitude"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:textSize="25sp"/>
     <EditText
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:layout_marginTop="20dp"
         android:hint="Enter Longitude"
         android:id="@+id/longitude"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:textSize="25sp"/>
     <EditText
         android:layout_width="match_parent"

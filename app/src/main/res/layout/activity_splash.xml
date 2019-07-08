@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/splash_layout"
     tools:context="splashscreen.splash">
 
 
@@ -21,9 +22,10 @@
         android:layout_height="wrap_content"
         android:text="Serve and Protect"
         android:textSize="30sp"
-        android:textColor="@android:color/white"
-        android:background="#3033FF"
-        android:layout_below="@id/imageView"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="75dp"
         android:padding="10dp"/>
 </RelativeLayout>

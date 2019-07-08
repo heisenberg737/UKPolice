@@ -34,7 +34,7 @@ public class favCrimes {
 
         private static final String databaseName="FAVOURITESDATABASE";
         public static final String tableName="FAVOURITESTABLE";
-        private static final int databaseVersion=5;
+        private static final int databaseVersion=6;
         public static final String CATEGORY="CATEGORY";
         public static final String LOCATION_TYPE="LOCATION_TYPE";
         public static final String OUTCOME="OUTCOME";
@@ -65,6 +65,9 @@ public class favCrimes {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            String query="DROP TABLE IF EXISTS "+tableName+"";
+            db.execSQL(query);
+            onCreate(db);
 
         }
 

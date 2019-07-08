@@ -90,7 +90,7 @@ public class forces extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(getContext(),"Something went wrong..",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Something went wrong. Check your internet connection or make sure you entered correct values.",Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
 
             }

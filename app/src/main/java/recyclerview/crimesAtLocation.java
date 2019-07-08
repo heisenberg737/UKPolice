@@ -107,7 +107,7 @@ public class crimesAtLocation extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        Toast.makeText(getContext(), "Something went wrong..", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Something went wrong. Check your internet connection or make sure you entered correct values.", Toast.LENGTH_LONG).show();
                         error.printStackTrace();
 
                     }
@@ -130,7 +130,8 @@ public class crimesAtLocation extends Fragment  {
 
                  //insertion done here. insertData function present in favCrimes class. Insertion is failing
                 long id=favourites.insertData(arrayList.get(viewHolder.getAdapterPosition()).getCategory(),arrayList.get(viewHolder.getAdapterPosition()).getMonth(),arrayList.get(viewHolder.getAdapterPosition()).getLocation(),arrayList.get(viewHolder.getAdapterPosition()).getOutcome());
-                Log.d("Favourites",""+id);
+                Log.d("Favourites",arrayList.get(viewHolder.getAdapterPosition()).getMonth());
+//                Log.d("Favourites",""+id);
                 if(id>0)
                 {
                     Toast.makeText(getContext(),"Added to Favourites",Toast.LENGTH_SHORT).show();
