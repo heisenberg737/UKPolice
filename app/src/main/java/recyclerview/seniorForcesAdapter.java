@@ -15,6 +15,7 @@ import heisenber737.ukpolice.forces_cl;
 public class seniorForcesAdapter extends RecyclerView.Adapter<seniorForcesAdapter.MyViewHolder> {
     ArrayList<forces_cl>  arrayList=new ArrayList<>();
 
+
     public seniorForcesAdapter(ArrayList<forces_cl> arrayList)
     {
         this.arrayList=arrayList;

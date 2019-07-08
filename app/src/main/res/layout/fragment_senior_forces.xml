@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     tools:context="recyclerview.seniorForces">
 
+    <include
+        layout="@layout/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_senior"
+        android:layout_below="@id/head"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -14,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titles"
-        android:layout_below="@id/head"
+        android:layout_below="@id/search_senior"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
@@ -41,6 +48,8 @@
         android:layout_below="@id/titles"
         android:id="@+id/senior_forces_list">
     </android.support.v7.widget.RecyclerView>
+
+
 
 
 

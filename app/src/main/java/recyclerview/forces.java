@@ -3,13 +3,12 @@ package recyclerview;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -28,18 +27,24 @@ import java.util.ArrayList;
 
 import heisenber737.ukpolice.MySingleton;
 import heisenber737.ukpolice.R;
+import heisenber737.ukpolice.forcesOptions;
 import heisenber737.ukpolice.forces_cl;
+import heisenber737.ukpolice.onItemClickListener;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class forces extends Fragment  {
+public class forces extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     forces_adapter adapter;
     ArrayList<forces_cl> arrayList=new ArrayList<>();
     String forces_url="https://data.police.uk/api/forces";
+    SearchView searchView;
+
+
+
 
 
     public forces() {
@@ -57,6 +62,10 @@ public class forces extends Fragment  {
         layoutManager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+        arrayList.clear();
+        searchView=view.findViewById(R.id.search);
+        searchView.setQueryHint("Search by Name");
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Request.Method.GET, forces_url, null, new Response.Listener<JSONArray>() {
             @Override
@@ -89,18 +98,10 @@ public class forces extends Fragment  {
 
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
 
-        adapter=new forces_adapter(arrayList);
+        adapter=new forces_adapter(arrayList,listener);
         recyclerView.setAdapter(adapter);
-        return view;
-    }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.search_icon,menu);
-        MenuItem searchItem=menu.findItem(R.id.action_search);
-        SearchView searchView=(SearchView) searchItem.getActionView();
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -109,9 +110,39 @@ public class forces extends Fragment  {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                adapter.getFilter().filter(s);
+                s=s.toLowerCase();
+                ArrayList<forces_cl> newList=new ArrayList<>();
+                for(forces_cl force:arrayList)
+                {
+                    String name=force.getName().toLowerCase();
+                    if(name.contains(s))
+                    {
+                        newList.add(force);
+                    }
+                }
+                adapter.setFilter(newList);
                 return true;
             }
         });
+
+
+        return view;
     }
+
+    onItemClickListener listener=new onItemClickListener() {
+        @Override
+        public void onClick(int position, String str) {
+            forcesOptions forces=new forcesOptions();
+            Bundle bundle=new Bundle();
+            bundle.putString("place",str);
+            forces.setArguments(bundle);
+            FragmentManager fragmentManager=getFragmentManager();
+            FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.MainContent,forces).addToBackStack(null).commit();
+        }
+    };
+
+
+
+
 }

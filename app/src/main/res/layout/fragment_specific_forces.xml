@@ -21,19 +21,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/text"
             android:textColor="@android:color/background_dark"
-            android:text="ID"
+            android:text="ID :"
             android:textStyle="bold"
             android:textSize="30sp"
             android:padding="5dp"
-            android:layout_weight="1"/>
+            android:layout_weight="0.25"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/text1"
             android:textColor="@android:color/background_dark"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:padding="5dp"
-            android:layout_weight="1"/>
+            android:layout_weight="0.75"/>
     </LinearLayout>
 
     <LinearLayout
@@ -48,19 +48,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview"
             android:textColor="@android:color/background_dark"
-            android:text="URL"
+            android:text="URL :"
             android:textStyle="bold"
             android:textSize="30sp"
             android:padding="5dp"
-            android:layout_weight="1"/>
+            android:layout_weight="0.25"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/textview2"
             android:textColor="@android:color/background_dark"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:padding="5dp"
-            android:layout_weight="1"/>
+            android:layout_weight="0.75"/>
     </LinearLayout>
 
     <LinearLayout
@@ -75,11 +75,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview3"
             android:textColor="@android:color/background_dark"
-            android:text="Name"
+            android:text="Name :"
             android:textStyle="bold"
             android:textSize="30sp"
             android:padding="5dp"
-            android:layout_weight="1"/>
+            android:layout_weight="0.30"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:textColor="@android:color/background_dark"
             android:textSize="25sp"
             android:padding="5dp"
-            android:layout_weight="1"/>
+            android:layout_weight="0.70"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview5"
             android:textColor="@android:color/background_dark"
-            android:text="Telephone"
+            android:text="Telephone :"
             android:textStyle="bold"
             android:textSize="30sp"
             android:padding="5dp"
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview6"
             android:textColor="@android:color/background_dark"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:padding="5dp"
             android:layout_weight="1"/>
     </LinearLayout>
@@ -128,20 +128,25 @@
             android:layout_height="wrap_content"
             android:id="@+id/textview7"
             android:textColor="@android:color/background_dark"
-            android:text="Description"
+            android:text="Description :"
             android:textStyle="bold"
             android:textSize="30sp"
             android:padding="5dp"
             android:layout_weight="1"/>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/heading5">
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textview8"
             android:textColor="@android:color/background_dark"
-            android:textSize="30sp"
-            android:padding="5dp"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            android:textSize="20sp"
+            android:padding="5dp" />
+    </ScrollView>
 
 
 

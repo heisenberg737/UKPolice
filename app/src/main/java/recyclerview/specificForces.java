@@ -3,9 +3,6 @@ package recyclerview;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +27,9 @@ import heisenber737.ukpolice.R;
  * A simple {@link Fragment} subclass.
  */
 public class specificForces extends Fragment {
-    String forces_url="https://data.police.uk/api/forces/leicestershire",des;
+    String forces_url="https://data.police.uk/api/forces/",des,message;
     TextView id,name,url,telephone,description;
+
 
     public specificForces() {
         // Required empty public constructor
@@ -48,7 +46,8 @@ public class specificForces extends Fragment {
         url=view.findViewById(R.id.textview2);
         telephone=view.findViewById(R.id.textview6);
         description=view.findViewById(R.id.textview8);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, forces_url, null, new Response.Listener<JSONObject>() {
+        message=getArguments().getString("id");
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, forces_url+message, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -57,12 +56,13 @@ public class specificForces extends Fragment {
                     name.setText(response.getString("name"));
                     url.setText(response.getString("url"));
                     telephone.setText(response.getString("telephone"));
-                    description.setText(response.getString("description"));
-                    des=description.toString();
-                    if(TextUtils.isEmpty(des))
+                    if(response.isNull("description"))
                     {
-                        description.setText("No Description Available");
+                        description.setText("Description Not Available");
                     }
+                    else
+                        description.setText(response.getString("description"));
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -72,7 +72,7 @@ public class specificForces extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(getContext(),"Something went wrong..",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Something went wrong.",Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
 
             }
@@ -83,5 +83,6 @@ public class specificForces extends Fragment {
 
         return view;
     }
+
 
 }

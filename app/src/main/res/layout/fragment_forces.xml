@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/heading"
-        android:layout_below="@id/size"
+        android:layout_below="@id/search"
         android:orientation="horizontal">
 
         <TextView
@@ -45,5 +45,12 @@
         android:id="@+id/forceslist">
 
     </android.support.v7.widget.RecyclerView>
+    <include
+        layout="@layout/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search"
+        android:layout_below="@id/size"/>
+
 
 </RelativeLayout>

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import recyclerview.crimesAtLocation;
 import recyclerview.forces;
+import recyclerview.forces_adapter;
 import recyclerview.specificForces;
 import recyclerview.seniorForces;
 
@@ -70,13 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         toolbar.setTitle("Forces");
                         fragment=new forces();
                         break;
-                    case R.id.force_senior:
-                        menuItem.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        getSupportFragmentManager().popBackStack();
-                        toolbar.setTitle("Force Senior Officers ");
-                        fragment=new seniorForces();
-                        break;
+
                     case R.id.crimes_location:
                         menuItem.setChecked(true);
                         drawerLayout.closeDrawers();
@@ -86,15 +81,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.favourites:
                         menuItem.setChecked(true);
+                        getSupportFragmentManager().popBackStack();
                         drawerLayout.closeDrawers();
                         toolbar.setTitle("Favourites");
-                        break;
-                    case R.id.specific_force:
-                        menuItem.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        getSupportFragmentManager().popBackStack();
-                        toolbar.setTitle("Specific Forces");
-                        fragment=new specificForces();
+                        fragment=new Favourites();
                         break;
 
                 }
@@ -119,13 +109,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.search_icon, menu);
-        MenuItem menuItem=menu.findItem(R.id.action_search);
-        SearchView searchView= (SearchView) menuItem.getActionView();
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        return true;
-    }
+
 }

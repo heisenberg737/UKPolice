@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/layout"
+    android:layout_height="match_parent"
+    tools:context=".forcesOptions">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:id="@+id/bar">
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_below="@id/bar"
+        android:id="@+id/mytext"
+        android:textSize="25sp"
+        android:background="#3033FF"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Force Description"
+        android:textSize="25sp"
+        android:layout_marginTop="135dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="#3033FF"
+        android:layout_alignParentTop="true"
+        android:id="@+id/description"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/description"
+        android:text="Senior Officers"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:background="#3033FF"
+        android:textColor="@android:color/white"
+        android:id="@+id/senior_officers"/>
+
+
+</RelativeLayout>

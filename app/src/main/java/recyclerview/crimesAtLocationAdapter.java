@@ -20,6 +20,7 @@ public class crimesAtLocationAdapter extends RecyclerView.Adapter<crimesAtLocati
         this.arrayList=arrayList;
     }
 
+
     @NonNull
     @Override
     public CrimesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -32,8 +33,9 @@ public class crimesAtLocationAdapter extends RecyclerView.Adapter<crimesAtLocati
     public void onBindViewHolder(@NonNull CrimesViewHolder viewHolder, int i) {
         viewHolder.category.setText(arrayList.get(i).getCategory());
         viewHolder.location.setText(arrayList.get(i).getLocation());
-        viewHolder.month.setText(arrayList.get(i).getMonth());
         viewHolder.outcome.setText(arrayList.get(i).getOutcome());
+        viewHolder.month.setText(arrayList.get(i).getMonth());
+
     }
 
     public void swapData(ArrayList<crimesClass> newList)
@@ -48,17 +50,18 @@ public class crimesAtLocationAdapter extends RecyclerView.Adapter<crimesAtLocati
     }
 
     public class CrimesViewHolder extends RecyclerView.ViewHolder{
-        TextView category,month,location,outcome;
+        TextView category,location,outcome,month;
 
         public CrimesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             category=itemView.findViewById(R.id.category);
-            month=itemView.findViewById(R.id.month);
             location=itemView.findViewById(R.id.locationtype);
             outcome=itemView.findViewById(R.id.outcome_status);
+            month=itemView.findViewById(R.id.yyyymm);
 
         }
+
     }
 
     public void setFilter(ArrayList<crimesClass> newList)

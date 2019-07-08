@@ -18,8 +18,8 @@
         android:layout_weight="1"
         android:textSize="18sp"
         android:padding="5dp"
-        android:textColor="@android:color/background_dark"
-        android:id="@+id/month"/>
+        android:id="@+id/yyyymm"
+        android:textColor="@android:color/background_dark" />
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"

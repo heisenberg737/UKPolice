@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,11 +31,12 @@ import heisenber737.ukpolice.forces_cl;
  * A simple {@link Fragment} subclass.
  */
 public class seniorForces extends Fragment {
-    String forces_url="https://data.police.uk/api/forces/leicestershire/people";
+    String forces_url,message;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     seniorForcesAdapter adapter;
     ArrayList<forces_cl> arrayList=new ArrayList<>();
+    SearchView searchView;
 
 
     public seniorForces() {
@@ -50,10 +53,21 @@ public class seniorForces extends Fragment {
         layoutManager=new LinearLayoutManager(getContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
+        message=getArguments().getString("id");
+        forces_url="https://data.police.uk/api/forces/"+message+"/people";
+
+        searchView=view.findViewById(R.id.search_senior);
+        searchView.setQueryHint("Search by Rank");
+        
 
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Request.Method.GET, forces_url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+
+                if(response.length()==0)
+                {
+                    Toast.makeText(getContext(),"No Senior Officers Available",Toast.LENGTH_SHORT).show();
+                }
 
                 for(int i=0;i<response.length();i++)
                 {
@@ -81,6 +95,29 @@ public class seniorForces extends Fragment {
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
         adapter=new seniorForcesAdapter(arrayList);
         recyclerView.setAdapter(adapter);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<forces_cl> newList=new ArrayList<>();
+                newText=newText.toLowerCase();
+                for(forces_cl force:arrayList)
+                {
+                    String rank=force.getID().toLowerCase();
+                    if(rank.contains(newText))
+                    {
+                        newList.add(force);
+                    }
+                }
+                adapter.setFilter(newList);
+                return true;
+            }
+        });
 
         return view;
     }
